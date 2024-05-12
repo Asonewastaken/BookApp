@@ -24,6 +24,8 @@ namespace KitapTakip
 
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
+            //Burada girişi kontrol ediyorum.
+            //Bu kontrol try-catch ile de yapılabilir.(Güncelleyeceğim.)
             if (txt_KullaniciAdi.Text == "admin" && txt_Parola.Text == "1234")
             {
                DialogResult = DialogResult.OK;

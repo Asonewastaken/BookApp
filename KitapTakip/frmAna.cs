@@ -23,7 +23,10 @@ namespace KitapTakip
         }
 
         private void btnEkleGuncelle_Click(object sender, EventArgs e)
-        {//Hem ekleme hem güncelleme yapar.
+        {
+            //Hem ekleme hem güncelleme yapar.
+            //if kullanýmýnda eðer ki seçili eleman yoksa diyorum.
+            //Yani seçili bir indeks yoksa yeni bir kitap eklenecektir.
             if (lstKitaplar.SelectedIndex < 0)
             {
                 //Yeni Kitap
@@ -33,6 +36,8 @@ namespace KitapTakip
                 yeniKitap.RafNo = txtRafNumarasi.Text;
                 lstKitaplar.Items.Add(yeniKitap);
             }
+
+            //Burada da seçili bir eleman varsa güncelleme yapacaðý için var olan indeksin yerine yazdýrýyorum.
             else
             {
                 Kitap eskiKitap = (Kitap)lstKitaplar.Items[lstKitaplar.SelectedIndex];
@@ -154,7 +159,7 @@ namespace KitapTakip
             //ve kaydet metodunu tetikle.
             if (e.KeyCode == Keys.Enter)
                 btnEkleGuncelle_Click(this,EventArgs.Empty);
-                btnKaydet_Click(this,EventArgs.Empty);
+                
         }
     }
 }

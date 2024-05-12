@@ -15,8 +15,14 @@ namespace KitapTakip
             frmGiris giris = new frmGiris();
 
             if(giris.ShowDialog() == DialogResult.OK)
-            
+            {
                 Application.Run(new frmAna());
+
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }
