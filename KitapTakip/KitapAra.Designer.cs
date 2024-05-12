@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 46);
+            label1.Location = new Point(12, 71);
             label1.Name = "label1";
             label1.Size = new Size(303, 28);
             label1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // txtKitapAdi
             // 
             txtKitapAdi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtKitapAdi.Location = new Point(321, 46);
+            txtKitapAdi.Location = new Point(321, 71);
             txtKitapAdi.Name = "txtKitapAdi";
             txtKitapAdi.Size = new Size(213, 34);
             txtKitapAdi.TabIndex = 1;
@@ -55,7 +55,7 @@
             // btnBul
             // 
             btnBul.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBul.Location = new Point(230, 111);
+            btnBul.Location = new Point(230, 136);
             btnBul.Name = "btnBul";
             btnBul.Size = new Size(103, 39);
             btnBul.TabIndex = 2;

@@ -68,6 +68,7 @@
             txtRafNumarasi.Name = "txtRafNumarasi";
             txtRafNumarasi.Size = new Size(212, 27);
             txtRafNumarasi.TabIndex = 2;
+            txtRafNumarasi.KeyDown += txtRafNumarasi_KeyDown;
             // 
             // label3
             // 
@@ -85,6 +86,7 @@
             numFiyat.Name = "numFiyat";
             numFiyat.Size = new Size(212, 27);
             numFiyat.TabIndex = 3;
+            numFiyat.KeyDown += numFiyat_KeyDown;
             // 
             // label2
             // 
@@ -101,6 +103,7 @@
             txtKitapAdi.Name = "txtKitapAdi";
             txtKitapAdi.Size = new Size(212, 27);
             txtKitapAdi.TabIndex = 1;
+            txtKitapAdi.KeyDown += txtKitapAdi_KeyDown;
             // 
             // label1
             // 
@@ -120,6 +123,7 @@
             lstKitaplar.Size = new Size(314, 364);
             lstKitaplar.TabIndex = 0;
             lstKitaplar.MouseClick += lstKitaplar_MouseClick;
+            lstKitaplar.SelectedIndexChanged += lstKitaplar_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -140,6 +144,7 @@
             btnYeniKitap.TabIndex = 1;
             btnYeniKitap.Text = "Yeni Kitap";
             btnYeniKitap.UseVisualStyleBackColor = true;
+            btnYeniKitap.Click += btnYeniKitap_Click;
             // 
             // btnEkleGuncelle
             // 

@@ -45,6 +45,7 @@ namespace KitapTakip
 
             }
 
+            //Ýþlem yapýldýktan sonra textbox'larý temizle.
             txtKitapAdi.Text = "";
             txtRafNumarasi.Text = "";
             numFiyat.Value = 0;
@@ -54,6 +55,10 @@ namespace KitapTakip
         }
 
         private void lstKitaplar_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Sadece mouse týklandýðýnda çalýþýyor.
+        }
+        private void lstKitaplar_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indeks = lstKitaplar.SelectedIndex;
             if (indeks >= 0)
@@ -93,6 +98,8 @@ namespace KitapTakip
             string metin = JsonSerializer.Serialize<List<Kitap>>(liste);
 
             File.WriteAllText("kitaplar.dat", metin);
+
+            MessageBox.Show($"Kitap kaydedildi.", "Baþarýlý", MessageBoxButtons.OK);
         }
 
         private void btnAra_Click(object sender, EventArgs e)
@@ -103,7 +110,7 @@ namespace KitapTakip
 
             DialogResult cevap = aramaFormu.ShowDialog();
 
-            if(cevap == DialogResult.OK)
+            if (cevap == DialogResult.OK)
             {
                 MessageBox.Show("Aradýðýnýz Kitap Bulundu");
                 lstKitaplar.SelectedIndex = aramaFormu.BulunanIndex;
@@ -116,6 +123,38 @@ namespace KitapTakip
 
                 }
             }
+        }
+
+        private void btnYeniKitap_Click(object sender, EventArgs e)
+        {
+            //Kutucuklarý temizle.
+            txtKitapAdi.Text = "";
+            txtRafNumarasi.Text = "";
+            numFiyat.Value = 0;
+            lstKitaplar.SelectedIndex = -1;
+            txtKitapAdi.Focus(); //Temizledikten sonra kitap adýna focusla.
+        }
+
+        private void txtKitapAdi_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Kitap adýný yazdýktan sonra enter'a bastýðýmda sýradaki olan raf numarasý textbox'ýna git.
+            if (e.KeyCode == Keys.Enter)
+                txtRafNumarasi.Focus();
+        }
+
+        private void txtRafNumarasi_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                numFiyat.Focus();
+        }
+
+        private void numFiyat_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Fiyatý girdikten sonra enter'a bastýðýnda girdiðim verileri listbox'a ekle ve güncelle methodunu
+            //ve kaydet metodunu tetikle.
+            if (e.KeyCode == Keys.Enter)
+                btnEkleGuncelle_Click(this,EventArgs.Empty);
+                btnKaydet_Click(this,EventArgs.Empty);
         }
     }
 }
